@@ -1,16 +1,16 @@
 import { readdirSync } from "fs";
 
-export const getFileList = (rootViewPath: string): string[] => {
-  const files = readdirSync(rootViewPath, { withFileTypes: true })
+export const getFileList = (rootPath: string): string[] => {
+  const files = readdirSync(rootPath, { withFileTypes: true })
     .filter((dirent) => dirent.isFile())
-    .map((file) => rootViewPath + "/" + file.name);
+    .map((file) => rootPath + "/" + file.name);
 
-  const dirs = readdirSync(rootViewPath, { withFileTypes: true }).filter(
-    (dirent) => dirent.isDirectory()
+  const dirs = readdirSync(rootPath, { withFileTypes: true }).filter((dirent) =>
+    dirent.isDirectory()
   );
 
   const subDirFiles = dirs
-    ? dirs.flatMap((dirent) => getFileList(rootViewPath + "/" + dirent.name))
+    ? dirs.flatMap((dirent) => getFileList(rootPath + "/" + dirent.name))
     : [];
 
   return [...files, ...subDirFiles];
