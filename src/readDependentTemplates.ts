@@ -7,7 +7,9 @@ export const readDependentTemplates = (template: string): string[] => {
 
   const dependentTemplates = includes
     .map((include) => include.match(/['"]([^']*?\.tpl)['"]/))
-    .map((match) => match[1]);
+    .map((match) => {
+      return match ? match[1] : "";
+    });
 
   return dependentTemplates;
 };
