@@ -1,4 +1,4 @@
-import { getFileList } from "../src/fileList";
+import { getFileList } from "../src/getFileList";
 
 test("ファイルリストを取得できる", () => {
   expect(getFileList("./test/views")).toEqual([
