@@ -14,18 +14,17 @@ describe("依存しているファイルを取得する", () => {
     ).toEqual(["sub/sub/test.tpl", "sub/test.tpl"]);
   });
 
-  // test("fileが省略されていてもファイル名が取得できる", () => {
-  //   expect(
-  //     readDependentTemplates(
-  //       `
-  //       <body>
-  //         {include 'page_footer.tpl'}
-  //       </body>
-  //       `
-  //     )
-  //   );
-  // });
-  // test("includeするファイル以外の文字列は取得されない")
+  test("fileが省略されていてもファイル名が取得できる", () => {
+    expect(
+      readDependentTemplates(
+        `
+        <body>
+          {include 'page_footer.tpl'}
+        </body>
+        `
+      )
+    );
+  });
   test("include文が存在しない場合、空の配列が返る", () => {
     expect(
       readDependentTemplates(
