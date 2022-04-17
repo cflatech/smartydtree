@@ -1,4 +1,4 @@
-import { readDependentTemplates } from "../src/getDependentTemplates";
+import { readDependentTemplates } from "../src/readDependentTemplates";
 
 describe("依存しているファイルを取得する", () => {
   test("includeに記載されているファイルが取得できる", () => {
