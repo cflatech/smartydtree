@@ -21,10 +21,20 @@ describe("依存しているファイルを取得する", () => {
   //       <body>
   //         {include 'page_footer.tpl'}
   //       </body>
-  //     `
+  //       `
   //     )
   //   );
   // });
   // test("includeするファイル以外の文字列は取得されない")
-  // test
+  test("include文が存在しない場合、空の配列が返る", () => {
+    expect(
+      readDependentTemplates(
+        `
+        <body>
+          {$body}
+        </body>
+        `
+      )
+    ).toEqual([]);
+  });
 });
